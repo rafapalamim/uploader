@@ -5,8 +5,33 @@ define('APPPATH', realpath(dirname(__DIR__)));
 define('ENV', 'production');
 
 // UPLOADER CONSTANTS
-define('DEFAULT_STORAGE', 'local');
-define('DEFAULT_LOG_FORMAT', 'file');
+define('UPLOADER_ALLOW_MIMETYPES', [
+    'application/pdf',
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+    'application/vnd.ms-excel',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+]);
+
+define('UPLOADER_MAX_FILESIZE', 1024 * 5); // 5 MB;
+
+define('UPLOADER_DEFAULT_STORAGE', 'local');
+define('UPLOADER_DEFAULT_LOG_FORMAT', 'file');
+
+define('UPLOADER_NAME_TABLE_LOG', 'uploader_logs');
+define('UPLOADER_NAME_TABLE_FILES', 'uploader_files');
+
+define('UPLOADER_DB', [
+    'dsn' => 'mysql:host=db-uploader;dbname=uploader;port=3306;charset=utf8mb4',
+    'user' => 'app',
+    'pass' => 'app',
+    'options' => [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]
+]);
 
 define('UPLOADER_CONF', [
     'generate_log' => (ENV == 'production' ? true : false),
