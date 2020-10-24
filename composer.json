@@ -1,0 +1,19 @@
+{
+    "name": "codemim/uploader",
+    "description": "PHP Library for upload files",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Palamim",
+            "email": "palamimweb@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": ["config/vars.php"],
+        "psr-4": {
+            "Codemim\\Uploader\\":"src/"
+        }
+    }
+}
