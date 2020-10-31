@@ -30,7 +30,7 @@ class Files
      * @param boolean $stringfy
      * @return string|null
      */
-    public function getError(bool $stringfy = true): ?string
+    public function getFilesError(bool $stringfy = true): ?string
     {
         if (empty($this->errors)) {
             return null;
@@ -151,6 +151,12 @@ class Files
         }
     }
 
+    /**
+     * Retira caracteres prejudiciais do nome do arquivo
+     *
+     * @param string $filename
+     * @return string
+     */
     private function sanitizeNameFile(string $filename): string
     {
         return preg_replace('/[^a-zA-Z0-9\-\._]/','', str_replace(' ', '_', mb_strtolower($filename)));
@@ -165,7 +171,7 @@ class Files
      * @param boolean $showInfo
      * @return void
      */
-    private function setError(string $message, string $file, int $line, bool $showInfo = false): void
+    private function setError(string $message, string $file, int $line, bool $showInfo = SHOW_MORE_INFO_ERRORS): void
     {
 
         if ($showInfo) {

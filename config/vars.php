@@ -3,6 +3,7 @@
 // DEFAULT
 define('APPPATH', realpath(dirname(__DIR__)));
 define('ENV', 'production');
+define('SHOW_MORE_INFO_ERRORS', false);
 
 // UPLOADER CONSTANTS
 define('UPLOADER_ALLOW_MIMETYPES', [
@@ -49,13 +50,15 @@ define('UPLOADER_CONF', [
 define('UPLOADER_STORAGES', [
     'local' => [
         'name_local' => 'local',
+        'need_auth' => false,
         'auth_login_local' => '',
         'auth_passw_local' => '',
         'auth_token_local' => '',
-        'initial_path' => ''
+        'initial_path' => APPPATH . '/uploader/storage'
     ],
     'aws_bucket' => [
         'name_local' => 'aws_bucket',
+        'need_auth' => true,
         'auth_login_local' => '',
         'auth_passw_local' => '',
         'auth_token_local' => '',
@@ -63,6 +66,7 @@ define('UPLOADER_STORAGES', [
     ],
     'google_drive' => [
         'name_local' => 'google_drive',
+        'need_auth' => true,
         'auth_login_local' => '',
         'auth_passw_local' => '',
         'auth_token_local' => '',

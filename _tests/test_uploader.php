@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $uploader = new Uploader();
 
     if (!$uploader->add($_FILES['files'])) {
-        echo $uploader->getError();
+        echo $uploader->getFilesError();
     } else {
-        var_dump($uploader->getFiles());
+        $uploader->upload();
     }
 }
 ?>
